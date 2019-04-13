@@ -8,7 +8,7 @@ export default class Home extends Component {
       <Jumbotron>
         <div className="container text-center py-sm-5">
           <h1 className="display-4">
-            We hlep you to regenerate land and create a sustainable ecosystem
+            We help you to regenerate land and create a sustainable ecosystem
           </h1>
           <p className="lead">
             <em>Description</em>
