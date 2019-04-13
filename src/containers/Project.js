@@ -31,11 +31,11 @@ export default class Project extends Component {
             tribes: ''
         },
         goals: {
-            jobs: 30,
-            housing: 80,
+            jobs: '',
+            housing: '',
             industry: 'biogas',
-            budget: '10000 USD',
-            timeframe: '5 years'
+            budget: '',
+            timeframe: ''
         },
 
         mockup: {
@@ -53,8 +53,8 @@ export default class Project extends Component {
                 jobs: {default: '40', formName: 'frmGoalJobs', label: 'Jobs for # people'},
                 housing: {default: '120', formName: 'frmGoalHousing', label: 'Housing for # people'},
                 industry: {default: 'biogas', formName: 'frmGoalIndustry', label: 'Climate Type'},
-                budget: {default: '10.000 USD', formName: 'frmGoalBudget', label: 'Climate Type'},
-                timeframe: {default: '5 years', formName: 'frmGoalTimeframe', label: 'Climate Type'},
+                budget: {default: '10.000 USD', formName: 'frmGoalBudget', label: 'Budget'},
+                timeframe: {default: '5 years', formName: 'frmGoalTimeframe', label: 'Timeframe'},
             },
         },
 
@@ -135,26 +135,8 @@ export default class Project extends Component {
                         <option>Products to markets</option>
                     </Input>
                 </FormGroup>
-                <FormGroup>
-                    <Label for="frmGoalBudget">Budget</Label>
-                    <Input
-                        type="text"
-                        name="frmGoalBudget"
-                        id="frmGoalBudget"
-                        placeholder="10.000 USD"
-                        value={goals.budget}
-                    />
-                </FormGroup>
-                <FormGroup>
-                    <Label for="frmGoalTimeframe">Timeframe</Label>
-                    <Input
-                        type="text"
-                        name="frmGoalTimeframe"
-                        id="frmGoalTimeframe"
-                        placeholder="5 years"
-                        value={goals.timeframe}
-                    />
-                </FormGroup>
+                {this.renderTextInput(this.state.mockup.goals.timeframe, goals.timeframe)}
+                {this.renderTextInput(this.state.mockup.goals.budget, goals.budget)}
             </Form>
         );
     }
