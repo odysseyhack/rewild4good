@@ -7,7 +7,7 @@ export const DEVICE_BREAKPOINTS = {
   phone: 576
 };
 export const NEO4J_CONNECTION = {
-  host: 'localhost',
+  host: 'Madhus-MacBook-Pro-13.local',
   user: 'neo4j',
   password: 'graph'
 };
