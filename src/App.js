@@ -7,6 +7,7 @@ import About from './containers/About';
 import Contact from './containers/Contact';
 import NotFound from './containers/NotFound';
 import Play from './containers/Play';
+import Project from './containers/Project';
 
 // Components
 import Header from './components/Header';
@@ -23,6 +24,7 @@ class App extends Component {
             <Route path="/about" component={About} />
             <Route path="/contact" component={Contact} />
             <Route path="/play" component={Play} />
+            <Route path="/project" component={Project} />
 
             {/* Not found */}
             <Route component={NotFound} />
