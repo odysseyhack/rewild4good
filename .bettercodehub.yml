@@ -1,0 +1,5 @@
+exclude:
+  - /DirectoryYouWantToExclude/.*
+  - .*/js2neo\.js
+  - .*/eslintrc\.js
+  - .*/serviceWorker\.js
