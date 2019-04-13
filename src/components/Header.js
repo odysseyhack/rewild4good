@@ -1,12 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import {
-  UncontrolledCollapse,
-  Navbar,
-  NavbarToggler,
-  Nav,
-  NavItem
-} from 'reactstrap';
+import { Collapse, Navbar, NavbarToggler, Nav, NavItem } from 'reactstrap';
 import { APP_NAME } from '../constants';
 
 const navItems = [
@@ -16,6 +10,12 @@ const navItems = [
 ];
 
 export default class Header extends Component {
+  state = {
+    isOpen: false
+  };
+
+  toggle = () => this.setState({ isOpen: !this.state.isOpen });
+
   render() {
     return (
       <header>
@@ -23,8 +23,8 @@ export default class Header extends Component {
           <Link to="/" className="navbar-brand">
             {APP_NAME}
           </Link>
-          <NavbarToggler id="toggler" />
-          <UncontrolledCollapse toggler="#toggler" navbar>
+          <NavbarToggler onClick={this.toggle} />
+          <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               {navItems.map(item => (
                 <NavItem key={item.link}>
@@ -37,7 +37,7 @@ export default class Header extends Component {
                 </NavItem>
               ))}
             </Nav>
-          </UncontrolledCollapse>
+          </Collapse>
         </Navbar>
       </header>
     );

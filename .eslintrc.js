@@ -4,6 +4,7 @@ module.exports = {
     "plugin:react/recommended", 
     "plugin:prettier/recommended"
   ],
+  "plugins": ["jest"],
   "env": {
     "browser": true,
     "es6": true,
