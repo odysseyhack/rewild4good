@@ -4,7 +4,7 @@ import { Collapse, Navbar, NavbarToggler, Nav, NavItem } from 'reactstrap';
 import { APP_NAME } from '../constants';
 
 const navItems = [
-  { title: 'Add project', link: '/project' },
+  { title: 'New project', link: '/project' },
   { title: 'Play', link: '/play' },
   { title: 'About', link: '/about' },
   { title: 'Contact', link: '/contact' }

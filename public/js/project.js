@@ -47,6 +47,11 @@ function selectColor(color) {
     let polygonOptions = drawingManager.get('polygonOptions');
     polygonOptions.fillColor = color;
     drawingManager.set('polygonOptions', polygonOptions);
+
+    elements = document.getElementsByClassName("polycolored");
+    for (let i = 0; i < elements.length; i++) {
+        elements[i].style.backgroundColor=color+'30';
+    }
 }
 
 function setSelectedShapeColor(color) {
@@ -85,8 +90,8 @@ function buildColorPalette() {
 function initialize() {
 
     let map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 15,
-        center: new google.maps.LatLng(-4.666667, 29.633333),
+        zoom: 13,
+        center: new google.maps.LatLng(-1.245961, 116.858238),
         mapTypeId: google.maps.MapTypeId.SATELLITE,
         disableDefaultUI: false,
         zoomControl: true
