@@ -1,4 +1,4 @@
 exclude:
   - .*/public/.*
   - .*/.eslintrc.js
-  - .*/.serviceWorker.js
+  - .*/serviceWorker.js
