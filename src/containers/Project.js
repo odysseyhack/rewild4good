@@ -135,7 +135,7 @@ export default class Project extends Component {
     );
   }
 
-  renderTextInput(mockup, value) {
+  renderTextInput(mockup) {
     return (
       <FormGroup>
         <Label for={mockup.formName}>{mockup.label}</Label>
