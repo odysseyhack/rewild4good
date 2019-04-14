@@ -54,10 +54,16 @@ export default class Recipies extends Component {
   };
 
   render() {
-    const query = qs.stringify(window.location.search.slice(1));
+    const query = qs.parse(window.location.search.slice(1));
+    const entered = Object.keys(query)
+      .map(k => `${k} ${query[k]}`)
+      .join(' ');
     return (
       <div className="container my-4">
         <h2 className="mb-4">Recipies</h2>
+        <div className="small mb-3">
+          <em>{entered}</em>
+        </div>
         <ListGroup>
           {data.map((item, index) => (
             <ListGroupItem key={index} color={item.optimal && 'success'}>
@@ -81,10 +87,6 @@ export default class Recipies extends Component {
                   })}>
                   {item.decreases_flooding}
                 </span>
-                <br />
-                <div className="small">
-                  <em>{JSON.stringify(query)}</em>
-                </div>
               </div>
             </ListGroupItem>
           ))}
