@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import qs from 'qs';
 import { Route } from 'react-router-dom';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import './project.css';
@@ -115,10 +116,16 @@ export default class Project extends Component {
   };
 
   onChange = e => {
-    this.setState({ [`form_${e.target.name}`]: e.target.value });
+    this.setState({ [e.target.name]: e.target.value });
   };
 
   render() {
+    const qry = Object.keys(this.state)
+      .filter(k => k.startsWith('frm'))
+      .reduce((init, k) => {
+        init[k.replace('frm', '')] = this.state[k];
+        return init;
+      }, {});
     return (
       <>
         <div id="map" />
@@ -154,7 +161,9 @@ export default class Project extends Component {
                 <Button
                   color="primary"
                   size="lg"
-                  onClick={() => history.push('/recipies')}>
+                  onClick={() =>
+                    history.push(`/recipies?${qs.stringify(qry)}`)
+                  }>
                   Find suitable recipies
                 </Button>
               )}
@@ -175,6 +184,7 @@ export default class Project extends Component {
           name={mockup.formName}
           id={mockup.formName}
           placeholder={mockup.default}
+          onChange={this.onChange}
         />
       </FormGroup>
     );
@@ -234,7 +244,11 @@ export default class Project extends Component {
       <Form>
         <FormGroup>
           <Label for="frmGoalIndustry">Restoration Goal</Label>
-          <Input type="select" name="frmGoalIndustry" id="frmGoalIndustry">
+          <Input
+            type="select"
+            name="frmGoalIndustry"
+            id="frmGoalIndustry"
+            onChange={this.onChange}>
             <option>Biofuel</option>
             <option>CO2 sequestration</option>
             <option>Food security</option>
