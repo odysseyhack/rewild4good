@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import './project.css';
 
@@ -129,6 +130,18 @@ export default class Project extends Component {
               {this.renderEnvironment(this.state.environment)}
             </div>
             <div className="col-md-6">{this.renderGoals(this.state.goals)}</div>
+          </div>
+          <div className="text-center my-5">
+            <Route
+              render={({ history }) => (
+                <Button
+                  color="primary"
+                  size="lg"
+                  onClick={() => history.push('/recipies')}>
+                  Find suitable recipies
+                </Button>
+              )}
+            />
           </div>
         </div>
       </>
