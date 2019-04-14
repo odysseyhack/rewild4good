@@ -11,7 +11,7 @@ export default class Home extends Component {
             We help you to regenerate land and create a sustainable ecosystem
           </h1>
           <p className="lead">
-            <em>Description</em>
+            <em>Unlocking the Sustainable Potential of Land and People</em>
           </p>
           <Link to="/project" className="btn btn-primary mt-2 mb-sm-5">
             Check us out

@@ -5,7 +5,7 @@ import { APP_NAME } from '../constants';
 
 const navItems = [
   { title: 'New project', link: '/project' },
-  { title: 'Play', link: '/play' },
+  // { title: 'Play', link: '/play' },
   { title: 'About', link: '/about' },
   { title: 'Contact', link: '/contact' }
 ];
