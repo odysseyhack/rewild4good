@@ -46,34 +46,47 @@ export default class Project extends Component {
           label: 'Climate Type'
         },
         rainfall: {
-          default: '6 ml',
+          default: '0 - 2106 ml',
           formName: 'frmEnvRainfall',
           label: 'Rainfall amount'
         },
         altitude: {
-          default: '2675 m',
+          default: '70 m',
           formName: 'frmEnvAltitude',
           label: 'Altitude'
         },
-        soil: { default: 'clay', formName: 'frmEnvSoil', label: 'Soil Type' },
-        slope: { default: '15%', formName: 'frmEnvSlope', label: 'Slope' },
+        soil: {
+          default: 'Entisols, Inceptisols, Ultisols',
+          formName: 'frmEnvSoil',
+          label: 'Soil Type'
+        },
+        slope: {
+          default: 'agregar mean slope',
+          formName: 'frmEnvSlope',
+          label: 'Slope'
+        },
         temperature: {
-          default: '25 °C',
+          default: '25.5 - 26.7 °C',
           formName: 'frmEnvTemp',
           label: 'Temperature average'
         },
         plant_species: {
-          default: 'Baduy, Inka',
+          default: 'Arenga Pinnata, Glycindria, Ficus',
           formName: 'frmEnvSpecies',
-          label: 'Plant species present'
+          label: 'Native plant species'
         },
         tribes: {
-          default: 'Chestnut, Olive',
+          default: 'Melayu',
           formName: 'frmEnvTribes',
           label: 'Tribes present'
         }
       },
       goals: {
+        industry: {
+          default: 'biogas',
+          formName: 'frmGoalIndustry',
+          label: 'Restoration Goal'
+        },
         jobs: {
           default: '40',
           formName: 'frmGoalJobs',
@@ -84,11 +97,7 @@ export default class Project extends Component {
           formName: 'frmGoalHousing',
           label: 'Housing for # people'
         },
-        industry: {
-          default: 'biogas',
-          formName: 'frmGoalIndustry',
-          label: 'Climate Type'
-        },
+
         budget: {
           default: '10.000 USD',
           formName: 'frmGoalBudget',
@@ -127,9 +136,17 @@ export default class Project extends Component {
 
           <div className="row">
             <div className="col-md-6">
+              <h4>Environmental conditions</h4>
+              <p>Fields are populated automatically</p>
+              <br />
               {this.renderEnvironment(this.state.environment)}
             </div>
-            <div className="col-md-6">{this.renderGoals(this.state.goals)}</div>
+            <div className="col-md-6">
+              <h4>Desired restoration project outcome</h4>
+              <p>Fields are optional</p>
+              <br />
+              {this.renderGoals(this.state.goals)}
+            </div>
           </div>
           <div className="text-center my-5">
             <Route
@@ -148,16 +165,16 @@ export default class Project extends Component {
     );
   }
 
-  renderTextInput(mockup) {
+  renderTextInput(mockup, value, className) {
     return (
       <FormGroup>
         <Label for={mockup.formName}>{mockup.label}</Label>
         <Input
+          className={className}
           type="text"
           name={mockup.formName}
           id={mockup.formName}
           placeholder={mockup.default}
-          onChange={this.onChange}
         />
       </FormGroup>
     );
@@ -167,28 +184,46 @@ export default class Project extends Component {
     return (
       <Form>
         {this.renderTextInput(
-          this.state.mockup.environment.altitude,
-          env.altitude
-        )}
-        {this.renderTextInput(this.state.mockup.environment.slope, env.slope)}
-        {this.renderTextInput(
           this.state.mockup.environment.climate,
-          env.climate
+          env.climate,
+          'polycolored'
         )}
+        {this.renderTextInput(
+          this.state.mockup.environment.soil,
+          env.soil,
+          'polycolored'
+        )}
+        {this.renderTextInput(
+          this.state.mockup.environment.altitude,
+          env.altitude,
+          'polycolored'
+        )}
+        {this.renderTextInput(
+          this.state.mockup.environment.slope,
+          env.slope,
+          'polycolored'
+        )}
+
         {this.renderTextInput(
           this.state.mockup.environment.temperature,
-          env.temperature
+          env.temperature,
+          'polycolored'
         )}
         {this.renderTextInput(
           this.state.mockup.environment.rainfall,
-          env.rainfall
+          env.rainfall,
+          'polycolored'
         )}
-        {this.renderTextInput(this.state.mockup.environment.soil, env.soil)}
 
-        {this.renderTextInput(this.state.mockup.environment.tribes, env.tribes)}
+        {this.renderTextInput(
+          this.state.mockup.environment.tribes,
+          env.tribes,
+          'polycolored'
+        )}
         {this.renderTextInput(
           this.state.mockup.environment.plant_species,
-          env.plant_species
+          env.plant_species,
+          'polycolored'
         )}
       </Form>
     );
@@ -197,28 +232,24 @@ export default class Project extends Component {
   renderGoals(goals) {
     return (
       <Form>
-        {this.renderTextInput(this.state.mockup.goals.jobs, goals.jobs)}
-        {this.renderTextInput(this.state.mockup.goals.housing, goals.housing)}
         <FormGroup>
-          <Label for="frmGoalIndustry">Desired industry</Label>
-          <Input
-            type="select"
-            name="frmGoalIndustry"
-            id="frmGoalIndustry"
-            onChange={this.onChange}>
+          <Label for="frmGoalIndustry">Restoration Goal</Label>
+          <Input type="select" name="frmGoalIndustry" id="frmGoalIndustry">
             <option>Biofuel</option>
-            <option>CO2</option>
+            <option>CO2 sequestration</option>
             <option>Food security</option>
             <option>Flood protection</option>
             <option>Biodiversity</option>
             <option>Products to markets</option>
           </Input>
         </FormGroup>
+        {this.renderTextInput(this.state.mockup.goals.budget, goals.budget)}
         {this.renderTextInput(
           this.state.mockup.goals.timeframe,
           goals.timeframe
         )}
-        {this.renderTextInput(this.state.mockup.goals.budget, goals.budget)}
+        {this.renderTextInput(this.state.mockup.goals.jobs, goals.jobs)}
+        {this.renderTextInput(this.state.mockup.goals.housing, goals.housing)}
       </Form>
     );
   }

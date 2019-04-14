@@ -23,6 +23,9 @@ export default class Header extends Component {
         <Navbar color="dark" dark expand="md">
           <Link to="/" className="navbar-brand">
             {APP_NAME}
+            <span style={{ 'font-size': '13px', display: 'block' }}>
+              Unlocking the Sustainable Potential of Land and People
+            </span>
           </Link>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>

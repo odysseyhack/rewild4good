@@ -1,4 +1,4 @@
-export const APP_NAME = 'Odyssey Hack';
+export const APP_NAME = 'ReWild4Good';
 export const DEVICE_BREAKPOINTS = {
   giant: 1440,
   large: 1200,
