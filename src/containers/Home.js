@@ -13,7 +13,7 @@ export default class Home extends Component {
           <p className="lead">
             <em>Description</em>
           </p>
-          <Link to="/about" className="btn btn-primary mt-2 mb-sm-5">
+          <Link to="/project" className="btn btn-primary mt-2 mb-sm-5">
             Check us out
           </Link>
         </div>
