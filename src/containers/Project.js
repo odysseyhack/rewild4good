@@ -144,7 +144,9 @@ export default class Project extends Component {
           <div className="row">
             <div className="col-md-6">
               <h4>Environmental conditions</h4>
-              <p>Fields are populated automatically based on your selection</p>
+              <p>
+                Fields are populated automatically from your selected polygon
+              </p>
               <br />
               {this.renderEnvironment(this.state.environment)}
             </div>
