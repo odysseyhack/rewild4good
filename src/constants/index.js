@@ -1,4 +1,4 @@
-export const APP_NAME = 'Odyssey Hack';
+export const APP_NAME = 'ReWild4Good';
 export const DEVICE_BREAKPOINTS = {
   giant: 1440,
   large: 1200,
@@ -7,7 +7,7 @@ export const DEVICE_BREAKPOINTS = {
   phone: 576
 };
 export const NEO4J_CONNECTION = {
-  host: 'localhost',
+  host: 'Madhus-MacBook-Pro-13.local',
   user: 'neo4j',
   password: 'graph'
 };

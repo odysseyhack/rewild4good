@@ -1,0 +1,49 @@
+#map {
+    padding: 0;
+    margin: 0;
+    height: 500px;
+    width: 100%;
+}
+
+#panel {
+    margin-bottom: 35px;
+    padding: 15px 15px;
+    border-bottom: 1px solid #ccc;
+}
+
+#color-palette {
+    clear: both;
+}
+
+.color-button {
+    width: 14px;
+    height: 14px;
+    font-size: 0;
+    margin: 2px;
+    float: left;
+    cursor: pointer;
+}
+
+#delete-button {
+    margin-top: 5px;
+}
+
+#get-coods-button {
+    margin-top: 5px;
+}
+
+#info {
+    width: 180px;
+    height: 250px;
+}
+
+.bl1pxs {
+    border-left:1px solid #ccc;
+}
+.pd15 {
+    padding: 15px;
+}
+
+.bordergreen {
+    border-color:green;
+}
